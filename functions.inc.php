@@ -31,20 +31,4 @@ function http_referer_is_host()
         stristr($_SERVER['HTTP_REFERER'],$_SERVER['HTTP_HOST']));
 }
 
-/**
- * require_login()
- *
- * application-specific implementation 
- * TODO: role-based authorization stuff for admin pages
- */
-function require_login()
-{
-    if(!Account::getCurrent()->isLoggedIn())
-    {
-        $flash = new FlashMessage('site-wide');
-        $flash->add('require-login',1,FlashMessage::NOTICE);
-        $_SESSION['FlashMessage'] = serialize($flash);
-        header('Location: '.HTTP_DIR.'login');
-        exit;
-    }
-}
+// LOL THAT WAS FROM SOMETHING ELSE MOVE ALONG
